@@ -1,0 +1,56 @@
+1.sql Reflection:
+    Objective:
+        List all songs in the database.
+    Implementation:
+        The query uses SELECT name FROM songs to retrieve the names of all songs.
+        ORDER BY name sorts the results alphabetically by the song name.
+
+2.sql Reflection:
+    Objective:
+        List songs in increasing order of tempo.
+    Implementation:
+        SELECT name FROM songs fetches the song names.
+        ORDER BY tempo sorts these songs based on their tempo values in ascending order (default).
+
+3.sql Reflection:
+    Objective:
+        List the top 5 longest songs in descending order of length.
+    Implementation:
+        SELECT name FROM songs retrieves the song names.
+        ORDER BY duration_ms DESC sorts songs from longest to shortest.
+        LIMIT 5 restricts the output to the top 5 longest songs.
+
+4.sql Reflection:
+    Objective:
+        List songs with danceability, energy, and valence greater than 0.75.
+    Implementation:
+        SELECT name FROM songs selects song names.
+        WHERE energy > 0.75 AND valence > 0.75 AND danceability > 0.75 applies filters to select songs that exceed the specified thresholds for all three attributes.
+
+5.sql Reflection:
+    Objective:
+        Return the average energy of all songs.
+    Implementation:
+        SELECT AVG(energy) AS average_energy FROM songs calculates the average energy across all songs.
+        AVG(energy) computes the mean energy value, and AS average_energy names the output column.
+
+6.sql Reflection:
+    Objective:
+        List songs by Post Malone.
+    Implementation:
+        SELECT songs.name FROM songs JOIN artists ON songs.artist_id = artists.id joins the songs and artists tables on their respective artist_id and id fields.
+        WHERE artists.name = 'Post Malone' filters the results to include only songs by Post Malone.
+
+7.sql Reflection:
+    Objective:
+        Return the average energy of songs by Drake.
+    Implementation:
+        The query uses a similar approach as in 6.sql but focuses on Drake.
+        SELECT AVG(energy) FROM songs JOIN artists ON songs.artist_id = artists.id WHERE artists.name = 'Drake' computes the average energy of songs attributed to Drake.
+
+8.sql Reflection:
+    Objective:
+        List songs that feature other artists.
+    Implementation:
+        SELECT name FROM songs WHERE name LIKE '%feat.%' selects songs whose names include 'feat.', typically indicating a featured artist.
+        The use of % wildcards on both sides of 'feat.' ensures that any occurrence of 'feat.' in the song name is captured, regardless of its position.
