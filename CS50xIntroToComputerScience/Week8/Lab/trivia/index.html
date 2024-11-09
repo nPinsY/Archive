@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function checkAnswer(answer, buttonId) {
+                    let feedback = document.querySelector('#feedback-mc');
+                    let buttons = document.querySelectorAll('.mc-button');
+
+                    buttons.forEach(button => button.style.backgroundColor = '');
+
+                    if (answer === 7) {
+                        document.querySelector(buttonId).style.backgroundColor = 'green';
+                        feedback.textContent = 'Correct!';
+                    } else {
+                        document.querySelector(buttonId).style.backgroundColor = 'red';
+                        feedback.textContent = 'Incorrect';
+                    }
+                }
+
+                document.querySelector('#button1').addEventListener('click', function() { checkAnswer(5, '#button1'); });
+                document.querySelector('#button2').addEventListener('click', function() { checkAnswer(6, '#button2'); });
+                document.querySelector('#button3').addEventListener('click', function() { checkAnswer(7, '#button3'); });
+                document.querySelector('#button4').addEventListener('click', function() { checkAnswer(8, '#button4'); });
+
+                document.querySelector('#confirm-answer').addEventListener('click', function() {
+                    let answer = document.querySelector('#answer').value;
+                    let feedback = document.querySelector('#feedback-fr');
+                    if (answer.toLowerCase() === 'ottawa') {
+                        document.querySelector('#answer').style.backgroundColor = 'green';
+                        feedback.textContent = 'Correct!';
+                    } else {
+                        document.querySelector('#answer').style.backgroundColor = 'red';
+                        feedback.textContent = 'Incorrect';
+                    }
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>How many continents are there in the world?</h3>
+                <br>
+                <button id="button1" class="mc-button">5</button>
+                <button id="button2" class="mc-button">6</button>
+                <button id="button3" class="mc-button">7</button>
+                <button id="button4" class="mc-button">8</button>
+                <div id="feedback-mc"></div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What city serves as the capital of Canada?</h3>
+                <br>
+                <input type="text" id="answer" autocomplete="off" placeholder="Type your answer">
+                <button id="confirm-answer">Submit</button>
+                <div id="feedback-fr"></div>
+            </div>
+
+        </div>
+    </body>
+</html>
