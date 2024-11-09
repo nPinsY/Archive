@@ -18,6 +18,3 @@ This repository contains solutions to problem sets completed as part of HarvardX
 These solutions are shared as a personal reference for further coursework in computer science, particularly for my C++ assignments in university. They provide a foundation in programming practices and problem-solving strategies applicable to other languages.
 
 > **Note**: All code is original and adheres to the academic integrity guidelines of both HarvardX and my current institution. These solutions are not meant for direct reuse but as a learning and comparison resource for advancing my C++ skills.
-
-## Folder Structure
-
